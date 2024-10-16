@@ -3,6 +3,7 @@ import Knex from 'knex';
 import dotenv from 'dotenv';
 import { config } from './knexfile';
 import userRouter from './routes/user.route';
+import walletRouter from './routes/wallet.route';
 
 // Load environment variables
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(express.json()); // Middleware for parsing JSON
 
 // Routes
 app.use('/api/v1/auth', userRouter);
+app.use('/api/v1/wallet', walletRouter);
 
 knex.raw('select 1+1')
    .then(() => {
